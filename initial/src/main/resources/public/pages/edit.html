@@ -1,0 +1,21 @@
+<h2>Edit Person</h2>
+<div class="row" ng-controller='PersonEditControler'>
+<div class="col-md-6">
+    <form novalidate  name="AddNewForm" id="add-new-form" method="post" action="">
+      <input type="hidden" ng-model="person.id" value="{{person.id}}" />
+      <div class="form-group">
+        <label>First Name</label>
+        <input class="form-control" type="text" ng-model="person.firstName" value="{{person.firstName}}" required />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input class="form-control" type="text" ng-model="person.name" value="{{person.name}}" required />
+      </div>
+      
+		<button class="btn btn-primary" ng-disabled="AddNewForm.$invalid || isUnchanged(person)" id="add-new-btn" ng-click="Update_Person(person)">Update
+      <span class="glyphicon glyphicon-floppy-disk"></span></button>
+      <button class="btn btn-danger" ng-click="Delete_Person(person)">Delete <span class="glyphicon glyphicon-trash"></span></button>
+      <a href="/#/" class="btn">Cancel</a>
+    </form>
+</div>
+</div>
