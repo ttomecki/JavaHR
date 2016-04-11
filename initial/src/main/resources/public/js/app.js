@@ -26,9 +26,12 @@ app.controller('PersonAddControler', [ '$scope', '$http',
 
 			$scope.master = {};
 			$scope.activePath = null;
+			$http.get('/depart/').success(function(data) {
+				$scope.departments = data;
+			});
+			$scope.genders = ["MALE", "FEMALE"];
 
 			$scope.New_Person = function(person, AddNewForm) {
-				console.log(person);
 				$http.post('/persons/add', person).success(function() {
 					$scope.reset();
 					$scope.activePath = $location.path('/');
@@ -38,6 +41,7 @@ app.controller('PersonAddControler', [ '$scope', '$http',
 				};
 				$scope.reset();
 			};
+			
 		} ]),
 
 app.controller('PersonEditControler',[
@@ -47,14 +51,18 @@ app.controller('PersonEditControler',[
             $scope.activePath = null;
 
             $http.get('/persons/'+id).success(function(data) {
-              $scope.person = data;
+    			$http.get('/depart/').success(function(data) {
+    				$scope.departments = data;
+    			});
+    			$scope.genders = ["MALE", "FEMALE"];
+    			$scope.person = data;
             });
 
             $scope.Update_Person = function(person, AddNewForm) {
-				$http.post('/persons/update', person).success(function() {
-					console.log(person);
+				$http.post('/persons/update', person).then(function() {
+					$scope.activePath = $location.path('/');
+
 				});
-				$scope.activePath = $location.path('/');
 			};
             
             $scope.Delete_Person = function(person) {

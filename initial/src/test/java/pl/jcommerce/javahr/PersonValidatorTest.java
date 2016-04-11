@@ -10,6 +10,7 @@ public class PersonValidatorTest {
 	@Test
 	public void testValidateOK() {
 		Person p = new Person("TEST", "TEST");
+		p.setGender("MALE");
 		PersonValidator pv = new PersonValidator();
 		Assert.assertTrue(pv.validate(p));
 	}

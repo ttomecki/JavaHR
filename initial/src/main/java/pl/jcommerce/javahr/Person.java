@@ -2,6 +2,7 @@ package pl.jcommerce.javahr;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,6 +16,9 @@ public class Person implements Serializable {
 	private Long id;
 	private String name;
 	private String firstName;
+	
+	private String department;
+	private String gender;
 
 	public Person() {
 		super();
@@ -49,6 +53,24 @@ public class Person implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Column(nullable=true)
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
 	
 	
 

@@ -1,18 +1,28 @@
 <h2>New Person</h2>
 
 <div class="row" ng-controller="PersonAddControler">
-<div class="col-md-6">
-  <form name="AddNewForm" id="add-new-form" method="post" action="">
-    <div class="form-group">
-  	<label for="name">First Name</label>
-  	<input class="form-control" type="text" ng-model="person.firstName" required />
-    </div>
-    <div class="form-group">
-  	<label for="name">Last Name</label>
-  	<input class="form-control" type="text" ng-model="person.name" required />
-    </div>    
-     <button class="btn btn-primary" ng-disabled="AddNewForm.$invalid || isUnchanged(person)" id="add-new-btn" ng-click="New_Person(person)">Save</button>
-     <a href="/#/" class="btn">Cancel</a>
-   </form>
-</div>
+	<div class="col-md-6">
+		<form name="AddNewForm" id="add-new-form" method="post" action="">
+			<div class="form-group">
+				<label for="name">First Name</label> <input class="form-control"
+					type="text" ng-model="person.firstName" required />
+			</div>
+			<div class="form-group">
+				<label for="name">Last Name</label> <input class="form-control"
+					type="text" ng-model="person.name" required />
+			</div>
+			<div class="form-group">
+				<label>Gender</label> <select ng-model="person.gender"
+					ng-options="gen as gen for gen in genders" required></select>
+			</div>
+			<div class="form-group">
+				<label>Department</label> <select ng-model="person.department"
+					ng-options="dep as dep for dep in departments" ng-init="departments[0]"></select>
+			</div>
+			<button class="btn btn-primary"
+				ng-disabled="AddNewForm.$invalid || isUnchanged(person)"
+				id="add-new-btn" ng-click="New_Person(person)">Save</button>
+			<a href="/#/" class="btn">Cancel</a>
+		</form>
+	</div>
 </div>

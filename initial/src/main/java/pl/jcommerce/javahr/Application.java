@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class Application {
-	
+	/*
 	@Bean
 	CommandLineRunner init(PersonRepository personRepository) {
 		return (evt) -> Arrays.asList(
@@ -19,7 +19,7 @@ public class Application {
 						a -> {
 							personRepository.save(a);
 						});
-	}
+	}*/
     
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);

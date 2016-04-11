@@ -4,7 +4,8 @@ public class PersonValidator {
 
 	public boolean validate(Person p) {
 		return !isNullOrEmpty(p.getFirstName()) 
-				&& !isNullOrEmpty(p.getName());
+				&& !isNullOrEmpty(p.getName()) 
+				&& !isNullOrEmpty(p.getGender());
 		
 	}
 	
